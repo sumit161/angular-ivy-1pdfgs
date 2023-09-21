@@ -1,0 +1,24 @@
+<div class="row col-sm-6 offset-sm-3" *ngIf="Obj">
+  <h3 class="text-info">
+    {{ Obj.completed ? 'Completed Todos' : 'Incompleted Todos' }}
+  </h3>
+  <ul
+    class="list-group mt-4"
+    [ngClass]="{ red: !Obj.completed, blue: Obj.completed }"
+  >
+    <li class="list-group-item"><strong>Id</strong> : {{ Obj.id }}</li>
+    <li class="list-group-item"><strong>Title</strong> : {{ Obj.title }}</li>
+    <li class="list-group-item">
+      <strong> Status</strong> :
+      <span class="pr-2">{{
+        Obj.completed ? 'Completed' : 'InCompleted'
+      }}</span>
+      <input
+        type="checkbox"
+        id="data"
+        [(ngModel)]="status"
+        (click)="callback()"
+      />
+    </li>
+  </ul>
+</div>

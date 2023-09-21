@@ -1,0 +1,20 @@
+<h2 class="text-primary">Todos List</h2>
+<div class="row" *ngIf="TodosArr">
+  <h6>
+    ( Complete Todos Count : {{ completedCount }} and Incomplete Todos Count :
+    {{ TodosArr.length - completedCount }})
+  </h6>
+  <ul
+    [routerLink]="['/Todos', item.id]"
+    class="list-group col-sm-6 offset-sm-3 mt-4"
+    [ngClass]="{ red: !item.completed, blue: item.completed }"
+    *ngFor="let item of TodosArr"
+  >
+    <li class="list-group-item"><strong>Id</strong> : {{ item.id }}</li>
+    <li class="list-group-item"><strong>Title</strong> : {{ item.title }}</li>
+    <li class="list-group-item">
+      <strong>Staus</strong> :
+      {{ item.completed ? 'Completed' : 'InCompleted' }}
+    </li>
+  </ul>
+</div>
